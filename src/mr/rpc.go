@@ -9,6 +9,26 @@ package mr
 import "os"
 import "strconv"
 
+type (
+	ApplyArgs struct{}
+
+	ApplyReply struct {
+		Task    Tasker
+		ReduceN int64
+	}
+)
+
+type (
+	ReportArgs struct {
+		Task            Tasker
+		TaskId          int64
+		StorageLocation string
+		WorkerId        int64
+	}
+
+	ReportReply struct{}
+)
+
 //
 // example to show how to declare the arguments
 // and reply for an RPC.
@@ -23,7 +43,6 @@ type ExampleReply struct {
 }
 
 // Add your RPC definitions here.
-
 
 // Cook up a unique-ish UNIX-domain socket name
 // in /var/tmp, for the coordinator.

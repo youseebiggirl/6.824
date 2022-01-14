@@ -9,10 +9,17 @@ package main
 // Please do not change this file.
 //
 
-import "6.824/mr"
+import (
+	"6.824/mr"
+	"log"
+)
 import "time"
 import "os"
 import "fmt"
+
+func init() {
+	log.SetFlags(log.Lshortfile)
+}
 
 func main() {
 	if len(os.Args) < 2 {

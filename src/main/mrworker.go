@@ -24,7 +24,9 @@ func main() {
 
 	mapf, reducef := loadPlugin(os.Args[1])
 
-	mr.Worker(mapf, reducef)
+	if err := mr.Worker(mapf, reducef); err != nil {
+		panic(err)
+	}
 }
 
 //
